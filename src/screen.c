@@ -17,6 +17,8 @@ void _sc_putchar_at(char _c, uint16 _pos, byte _color) {
 void print_char(char _c, byte _color) {
 
     switch (_c) {
+        case 0:
+            break;
         case '\n':
             _sc_jump_line();
             break;
