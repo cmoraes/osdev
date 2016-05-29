@@ -2,4 +2,6 @@
 
 kmain()
 {
+    clean_screen();
+    
 }
