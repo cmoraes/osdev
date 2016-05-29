@@ -1,3 +1,5 @@
+#include <screen.h>
+
 kmain()
 {
 }
