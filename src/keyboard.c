@@ -1,5 +1,10 @@
 #include <keyboard.h>
 
+
+char _kb_azerty_scancode[256] = {0, 27, '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', ')', '=', ' ',
+    '\t', 'a', 'z', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '^', '$', '\n', ' ', 'q', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'ù', '*',
+    ' ', '<', 'w', 'x', 'c', 'v', 'b', 'n', ',', ';', ':', '!', ' ', ' ', ' ', ' ', ' '};
+
 byte _kb_get_input() {
 
     if (inportb(0x64) & 0x01) {
@@ -9,37 +14,9 @@ byte _kb_get_input() {
 
 char getKeyPressed() {
     byte key = _kb_get_input();
-    
-    switch(key)
-    {
-        case 1:
-            return 27;
-            break;
-        case 16:
-            return 'a';
-            break;
-        case 17:
-            return 'z';
-            break;
-        case 18:
-            return 'e';
-            break;
-        default:
-            break;
-    }
-
-    // Digits:
-    if (key < 11 && key > 0) {
-        return 0x30 + key - 1;
-    }
-    if (key == 11) return 0x30;
-    
-    //Enter Key:
-    if (key == 28) return '\n';
-    
-    
+    return _kb_azerty_scancode[key];
 
     return 0;
-    
+
 
 }

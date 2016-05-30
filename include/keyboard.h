@@ -10,6 +10,8 @@
 
 #include <system.h>
 
+char _kb_azerty_scancode[256];
+
 byte _kb_get_input();
 char getKeyPressed();
 
